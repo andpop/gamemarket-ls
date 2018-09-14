@@ -52,4 +52,7 @@ POST admin/categories CategoriesController@store
 GET admin/categories/{id}/edit CategoriesController@edit (форма)
 PUT admin/categories/{id} CategoriesController@update
 DELETE admin/categories/{id}/delete CategoriesController@destroy
+</rich_text></node><node name="Frontend" prog_lang="custom-colors" readonly="False" tags="" unique_id="3"><rich_text>npm install
+npm run dev
+
 </rich_text></node></cherrytree>
