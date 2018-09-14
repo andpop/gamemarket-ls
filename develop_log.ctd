@@ -1,2 +1,55 @@
 <?xml version="1.0" ?><cherrytree><node name="Начало" prog_lang="custom-colors" readonly="False" tags="" unique_id="1"><rich_text>composer create-project --prefer-dist laravel/laravel gamemarket
+
+cd gamemarket
+git init
+git add .
+git commit -m &quot;Initial commit&quot;
+
+Создал репозиторий gamemarket-ls на github 
+git remote add origin git@github.com:andpop/gamemarket-ls.git
+git push -u origin master
+
+После клонирования на другой комп не запускается: </rich_text><rich_text background="#2a2a2a" foreground="#ffffff">No application encryption key has been specified</rich_text><rich_text>
+Запустил php artisan key:generate 
+Помогло
+
+php artisan make:migration create_categories --create=categories
+php artisan make:migration create_products --create=products
+php artisan make:migration create_orders --create=orders
+
+php artisan migrate
+
+php artisan make:model Category
+php artisan make:model Product
+php artisan make:model Order
+
+php artisan make:auth
+
+Зарегился admin 123456
+
+Добавил поле is_admin в таблицу users
+php artisan make:migration add_fields_user --table=users
+
+
+
+-----------------------------------------------------------------
+php artisan make:controller Admin
+
+</rich_text></node><node name="Структура" prog_lang="custom-colors" readonly="False" tags="" unique_id="2"><rich_text scale="h2">Category</rich_text><rich_text>
+id
+name
+description
+------------------------------------------------
+product() для связи с товарами
+
+add()
+edit()
+remove()
+------------------------------------------------
+GET admin/categories CategoriesController@index (форма со списком)
+GET admin/categories/create CategoriesController@create (форма)
+POST admin/categories CategoriesController@store
+GET admin/categories/{id}/edit CategoriesController@edit (форма)
+PUT admin/categories/{id} CategoriesController@update
+DELETE admin/categories/{id}/delete CategoriesController@destroy
 </rich_text></node></cherrytree>
