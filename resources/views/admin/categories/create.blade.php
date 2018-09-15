@@ -24,9 +24,11 @@
                         @include('admin.errors')
                         <div class="form-group">
                             <label for="category-name">Название</label>
-                            <input type="text" class="form-control" id="category-name" placeholder="" name="name">
+                            <input type="text" class="form-control" id="category-name" placeholder="" name="name"
+                                   value="{{old('name')}}">
                             <label for="category-description">Описание</label>
-                            <input type="text" class="form-control" id="category-description" placeholder="" name="description">
+                            <input type="text" class="form-control" id="category-description" placeholder="" name="description"
+                                   value="{{old('description')}}">
                         </div>
                     </div>
                 </div>

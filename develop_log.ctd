@@ -67,4 +67,5 @@ npm run dev
 </rich_text><rich_text foreground="#00000000ffff" scale="h3">php artisan route:list</rich_text><rich_text>
 
 Создание контроллера для REST-запросов с заготовками для всех actions
-php artisan make:controller Admin/TagsController --resource</rich_text></node></cherrytree>
+php artisan make:controller Admin/TagsController --resource</rich_text></node><node name="Полезности" prog_lang="custom-colors" readonly="False" tags="" unique_id="6"><rich_text scale="h3">Посмотреть, какие методы есть у объекта</rich_text><rich_text>
+</rich_text><rich_text foreground="#00000000ffff">dd(get_class_methods($object))</rich_text></node></cherrytree>

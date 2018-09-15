@@ -68,4 +68,23 @@ class Product extends Model
         }
         return '/uploads/'.$this->photo_file;
     }
+
+    public function getCategoryName()
+    {
+        return ($this->category != null)
+            ?   $this->category->name
+            :   'Нет категории';
+    }
+
+    public function getCategoryID()
+    {
+        return $this->category != null ? $this->category->id : null;
+    }
+
+    public function hasCategory()
+    {
+        return $this->category != null ? true : false;
+    }
+
+
 }
