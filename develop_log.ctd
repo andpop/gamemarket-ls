@@ -30,7 +30,7 @@ php artisan make:auth
 Добавил поле is_admin в таблицу users
 php artisan make:migration add_fields_user --table=users
 
-
+Для изменения атрибута столбца на nullable пришлось ставить: composer require doctrine/dbal
 
 -----------------------------------------------------------------
 php artisan make:controller Admin
@@ -52,7 +52,19 @@ POST admin/categories CategoriesController@store
 GET admin/categories/{id}/edit CategoriesController@edit (форма)
 PUT admin/categories/{id} CategoriesController@update
 DELETE admin/categories/{id}/delete CategoriesController@destroy
-</rich_text></node><node name="Frontend" prog_lang="custom-colors" readonly="False" tags="" unique_id="3"><rich_text>npm install
+
+------------------------------------------------------
+php artisan make:controller Admin/DashboardController</rich_text></node><node name="Frontend" prog_lang="custom-colors" readonly="False" tags="" unique_id="3"><rich_text>npm install
 npm run dev
 
-</rich_text></node></cherrytree>
+</rich_text></node><node name="Роутинг" prog_lang="custom-colors" readonly="False" tags="" unique_id="4"><rich_text>
+</rich_text><rich_text scale="h3">Действия, обрабатываемые ресурс-контроллером:</rich_text><rich_text>
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h3">Показывает все созданные маршруты!</rich_text><rich_text>
+</rich_text><rich_text foreground="#00000000ffff" scale="h3">php artisan route:list</rich_text><table char_offset="47" col_max="400" col_min="40"><row><cell>GET</cell><cell>/photo</cell><cell>index</cell><cell>resource.index</cell></row><row><cell>GET</cell><cell>/photo/create</cell><cell>create</cell><cell>photo.create</cell></row><row><cell>POST</cell><cell>/photo</cell><cell>store</cell><cell>photo.store</cell></row><row><cell>GET</cell><cell>/photo/{photo}</cell><cell>show</cell><cell>photo.show</cell></row><row><cell>GET</cell><cell>/photo/{photo}/edit</cell><cell>edit</cell><cell>photo.edit</cell></row><row><cell>PUT/PATCH</cell><cell>/photo/{photo}</cell><cell>update</cell><cell>photo.update</cell></row><row><cell>DELETE</cell><cell>/photo/{photo}</cell><cell>destroy</cell><cell>photo.destroy</cell></row><row><cell>Verb</cell><cell>Путь</cell><cell>Действие</cell><cell>Имя маршрута</cell></row></table></node><node name="artisan" prog_lang="custom-colors" readonly="False" tags="" unique_id="5"><rich_text scale="h3">Показывает все созданные маршруты!</rich_text><rich_text>
+</rich_text><rich_text foreground="#00000000ffff" scale="h3">php artisan route:list</rich_text><rich_text>
+
+Создание контроллера для REST-запросов с заготовками для всех actions
+php artisan make:controller Admin/TagsController --resource</rich_text></node></cherrytree>
