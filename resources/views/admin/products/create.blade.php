@@ -6,8 +6,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить статью
-                <small>приятные слова..</small>
+                Добавить товар
             </h1>
         </section>
 
@@ -26,15 +25,22 @@
                 <div class="box-body">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Название</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title" value="{{old('name')}}">
+                            <label for="product-name">Название</label>
+                            <input type="text" class="form-control" id="product-name" placeholder="" name="name"
+                                   value="{{old('name')}}">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Лицевая картинка</label>
-                            <input type="file" id="exampleInputFile" name="image">
+                            <label for="product-price">Цена</label>
+                            <input type="text" class="form-control" id="product-price" placeholder="" name="price"
+                                   value="{{old('price')}}">
+                        </div>
 
-                            <p class="help-block">Какое-нибудь уведомление о форматах..</p>
+                        <div class="form-group">
+                            <label for="product-photo">Фото товара</label>
+                            <input type="file" id="product-photo" name="photo">
+
+                            <p class="help-block">Какое-нибудь уведомление о форматах.</p>
                         </div>
                         <div class="form-group">
                             <label>Категория</label>
@@ -44,49 +50,14 @@
                                 ['class' => 'form-control select2'])
                             }}
                         </div>
-                        <!-- Date -->
-                        <div class="form-group">
-                            <label>Дата:</label>
 
-                            <div class="input-group date">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" class="form-control pull-right" id="datepicker" name="date" value="{{old('date')}}">
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-
-                        <!-- checkbox -->
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" class="minimal" name="is_featured">
-                            </label>
-                            <label>
-                                Рекомендовать
-                            </label>
-                        </div>
-
-                        <!-- checkbox -->
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" class="minimal" name="status">
-                            </label>
-                            <label>
-                                Черновик
-                            </label>
-                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Описание</label>
-                            <textarea name="description" id="" cols="30" rows="10" class="form-control" >{{old('description')}}</textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Полный текст</label>
-                            <textarea name="content" id="" cols="30" rows="10" class="form-control" ></textarea>
+                            <label for="product-description">Описание</label>
+                            <textarea name="description" id="product-description" cols="25" rows="10" class="form-control" >
+                                {{old('description')}}
+                            </textarea>
                         </div>
                     </div>
                 </div>

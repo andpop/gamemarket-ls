@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'category_id', 'price', 'photo_file', 'description'];
+    protected $fillable = ['name', 'category_id', 'price', 'photo', 'description'];
 
     /**
      * Получить запись о категории, к которой принадлежит товар
@@ -15,9 +15,7 @@ class Product extends Model
      */
     public function category()
     {
-//        Полная запись
-//        return $this->hasOne(Category::class,   'category_id', 'id');
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function orders()
@@ -43,30 +41,45 @@ class Product extends Model
     public function remove()
     {
 //        удалить фото товара
+        $this->removePhoto();
         $this->delete();
     }
 
-    public function uploadPhoto($photo) {
-        Storage::delete('uploads/'.$this->photo_file);
-        $filename = str_random(10) . '.' . $photo->extension;
-        $photo->saveAs('uploads', $filename);
-        $this->photo_file = $filename;
-        $this->save();
+    public function removePhoto()
+    {
+        if($this->photo != null)
+        {
+            Storage::delete('uploads/' . $this->photo);
+        }
     }
 
-    public function setCategory($id)
-    {
-        if ($id == null) {return;};
-        $this->category_id = $id;
+    public function uploadPhoto($photo) {
+        if($photo == null) { return; }
+
+        $this->removePhoto();
+        $filename = str_random(10) . '.' . $photo->extension();
+        $photo->storeAs('uploads', $filename);
+        $this->photo = $filename;
         $this->save();
     }
 
     public function getPhoto()
     {
-        if ($this->photo_file == null)  {
-            return '/img/no-image.jpg';
+        if($this->photo == null)
+        {
+            return '/img/no-image.png';
         }
-        return '/uploads/'.$this->photo_file;
+
+        return '/uploads/' . $this->photo;
+    }
+
+    public function setCategory($id)
+    {
+        if ($id == null) {
+            return;
+        };
+        $this->category_id = $id;
+        $this->save();
     }
 
     public function getCategoryName()

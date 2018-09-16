@@ -34,6 +34,7 @@
                             <th>ID</th>
                             <th>Название</th>
                             <th>Категория</th>
+                            <th>Описание</th>
                             <th>Фотография</th>
                             <th>Действия</th>
                         </tr>
@@ -43,9 +44,11 @@
                             <tr>
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->getCategoryTitle()}}</td>
+                                <td>{{$product->getCategoryName()}}</td>
+                                <td>{{$product->description}}</td>
+                                {{--<td>Temp</td>--}}
                                 <td>
-                                    <img src="{{$product->getImage()}}" alt="" width="100">
+                                    <img src="{{$product->getPhoto()}}" alt="" width="100">
                                 </td>
                                 <td>
                                     <a href="{{route('products.edit', $product->id)}}" class="fa fa-pencil"></a>
