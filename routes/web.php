@@ -15,18 +15,23 @@ Route::get('/', 'HomeController@index');
 Route::get('/product/{id}', 'HomeController@show')->name('product.show');
 Route::get('/category/{id}', 'HomeController@category')->name('category.show');
 
-Route::get('/register','AuthController@registerForm');
-Route::post('/register', 'AuthController@register');
-Route::get('/login','AuthController@loginForm')->name('login');
-Route::post('/login', 'AuthController@login');
-Route::get('/logout', 'AuthController@logout');
+Route::group(['middleware'	=>	'auth'], function(){
+    Route::get('/logout', 'AuthController@logout');
+    Route::get('/buy/{id}', 'PurchaseController@buyForm')->name('buy');
+});
 
-Route::get('/buy/{id}', 'PurchaseController@buyForm')->name('buy');
+Route::group(['middleware'	=>	'guest'], function(){
+    Route::get('/register','AuthController@registerForm');
+    Route::post('/register', 'AuthController@register');
+    Route::get('/login','AuthController@loginForm')->name('login');
+    Route::post('/login', 'AuthController@login');
+});
+
+
 //Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'],
+    function () {
     Route::get('/', 'DashboardController@index');
     Route::resource('/categories', 'CategoriesController');
     Route::resource('/products', 'ProductsController');
