@@ -68,4 +68,12 @@ npm run dev
 
 Создание контроллера для REST-запросов с заготовками для всех actions
 php artisan make:controller Admin/TagsController --resource</rich_text></node><node name="Полезности" prog_lang="custom-colors" readonly="False" tags="" unique_id="6"><rich_text scale="h3">Посмотреть, какие методы есть у объекта</rich_text><rich_text>
-</rich_text><rich_text foreground="#00000000ffff">dd(get_class_methods($object))</rich_text></node></cherrytree>
+</rich_text><rich_text foreground="#00000000ffff">dd(get_class_methods($object))</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h3">Работа с faker</rich_text><rich_text>
+1. php artisan make:factory --model=Product ProductFactory
+2. Заполняем database/factories/ProductFactory.php
+3. php artisan tinker
+4. factory(App\Product::class, 4)-&gt;create();
+</rich_text></node></cherrytree>
