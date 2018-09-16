@@ -76,4 +76,11 @@ php artisan make:controller Admin/TagsController --resource</rich_text></node><n
 2. Заполняем database/factories/ProductFactory.php
 3. php artisan tinker
 4. factory(App\Product::class, 4)-&gt;create();
+
+</rich_text><rich_text scale="h3">Кастомизация пагинации</rich_text><rich_text>
+1. php artisan vendor:publish --tag=laravel-pagination
+2. Скопировать содержимое файла resources/views/vendor/pagination/default.blade.php, сохранить в новом шаблоне /resources/views/pagination.blade.php
+3. </rich_text><rich_text background="#232525">{{</rich_text><rich_text background="#232525" foreground="#9876aa">$products-&gt;</rich_text><rich_text background="#232525" foreground="#ffc66d">links(</rich_text><rich_text background="#232525" foreground="#6a8759">'pagination')}}</rich_text><rich_text>
+4. Исправить верстку в /resources/views/pagination.blade.php
+
 </rich_text></node></cherrytree>

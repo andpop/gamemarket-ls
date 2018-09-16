@@ -12,8 +12,17 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/product/{id}', 'HomeController@show')->name('product.show');
+Route::get('/category/{id}', 'HomeController@category')->name('category.show');
 
-Auth::routes();
+Route::get('/register','AuthController@registerForm');
+Route::post('/register', 'AuthController@register');
+Route::get('/login','AuthController@loginForm')->name('login');
+Route::post('/login', 'AuthController@login');
+Route::get('/logout', 'AuthController@logout');
+
+Route::get('/buy/{id}', 'PurchaseController@buyForm')->name('buy');
+//Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
