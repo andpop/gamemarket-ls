@@ -5,10 +5,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Добавить категорию
-                <small>приятные слова..</small>
-            </h1>
+            <h1>Изменение категории игр</h1>
         </section>
 
         <!-- Main content -->

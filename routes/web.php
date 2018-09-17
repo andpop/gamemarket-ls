@@ -33,8 +33,9 @@ Route::group(['middleware'	=>	'guest'], function(){
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'],
     function () {
-    Route::get('/', 'DashboardController@index');
+    Route::get('/', 'DashboardController@index')->name('dashboard.index');
     Route::resource('/categories', 'CategoriesController');
     Route::resource('/products', 'ProductsController');
-
+    Route::resource('/orders', 'OrdersController');
+    Route::resource('/users', 'UsersController');
 });
