@@ -38,7 +38,7 @@
                             </div>
                             <div class="products-columns__item__description">
                                 <span class="products-price">{{$product->price}} руб</span>
-                                <a href="#" class="btn btn-blue">Купить</a>
+                                <a href="{{route('buy', $product->id)}}" class="btn btn-blue">Купить</a>
                             </div>
                         </div>
 

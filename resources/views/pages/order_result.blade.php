@@ -25,31 +25,8 @@
                     <div>
 
                         <div class="leave-comment mr0"><!--leave comment-->
-
-                            <h3 class="text-uppercase">{{$product->name}}</h3>
-                            @include('admin.errors')
-                            <br>
-                            <form class="form-horizontal buy-form" role="form" method="post" action="/buy">
-                                {{csrf_field()}}
-                                <input type="hidden" name="product_id" value="{{$product->id}}">
-                                <div class="form-group">
-                                    <div class="col-md-6">
-                                        <label for="user_name">Ваше полное имя</label>
-                                        <input type="text" class="form-control" id="user_name" name="user_full_name"
-                                               placeholder="Name" value="{{Auth::user()->name}}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        <label for="email">Ваше email</label>
-                                        <input type="text" value="{{Auth::user()->email}}" class="form-control" id="email" name="email"
-                                               placeholder="Email">
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn send-btn">Оформить заказ</button>
-
-                            </form>
+                            <h2 class="{{($data['status'] == 'OK') ? 'alert alert-success' : 'alert alert-danger'}}">
+                                {{$data['message']}}</h2>
                         </div><!--end leave comment-->
                     </div>
 
